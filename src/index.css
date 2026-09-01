@@ -1,0 +1,505 @@
+/* ─── Google Fonts — must come before all other rules ───────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: #00ff8833;
+    color: #00ff88;
+  }
+}
+
+/* ─── Component helpers ─────────────────────────────────────────────────── */
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-accent {
+    background: rgba(0, 255, 136, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 136, 0.15);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 8px #00ff88, 0 0 20px #00ff8866;
+  }
+
+  .text-glow-blue {
+    text-shadow: 0 0 8px #0066ff, 0 0 20px #0066ff66;
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 8px #7c3aed, 0 0 20px #7c3aed66;
+  }
+
+  .card-hover {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 255, 136, 0.3) !important;
+    box-shadow: 0 0 24px rgba(0, 255, 136, 0.08);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #00ff88, #0066ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-purple {
+    background: linear-gradient(135deg, #7c3aed, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .slide-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .noise-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .dot-bg {
+    background-image: radial-gradient(circle, rgba(0, 255, 136, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .progress-bar {
+    height: 2px;
+    background: linear-gradient(90deg, #00ff88, #0066ff);
+    box-shadow: 0 0 8px #00ff8866;
+    transition: width 0.3s ease;
+  }
+
+  .typewriter-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #00ff88;
+    margin-left: 2px;
+  }
+
+  .scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ─── Custom cursor ─────────────────────────────────────────────────────── */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: #00ff88;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-follower {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  transition: transform 0.15s ease, opacity 0.3s ease;
+}
+
+/* ─── Scanline overlay ──────────────────────────────────────────────────── */
+.scanline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLITCH EFFECT
+   Uses ::before / ::after pseudo-elements clipped and offset for the RGB split
+══════════════════════════════════════════════════════════════════════════════ */
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-wrapper::before,
+.glitch-wrapper::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* glitching state */
+.glitch-wrapper.glitching::before {
+  animation: glitch-1 0.4s steps(2, end) infinite;
+  color: #ff2d20;
+  clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+  opacity: 0.8;
+}
+
+.glitch-wrapper.glitching::after {
+  animation: glitch-2 0.4s steps(2, end) infinite;
+  color: #0066ff;
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+  opacity: 0.8;
+}
+
+@keyframes glitch-1 {
+  0% {
+    transform: translate(-3px, 1px) skewX(-2deg);
+  }
+
+  20% {
+    transform: translate(3px, -2px) skewX(3deg);
+  }
+
+  40% {
+    transform: translate(-2px, 3px) skewX(-1deg);
+  }
+
+  60% {
+    transform: translate(4px, 0px) skewX(2deg);
+  }
+
+  80% {
+    transform: translate(-4px, -1px) skewX(-3deg);
+  }
+
+  100% {
+    transform: translate(1px, 2px) skewX(1deg);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    transform: translate(3px, -1px) skewX(2deg);
+  }
+
+  20% {
+    transform: translate(-3px, 2px) skewX(-3deg);
+  }
+
+  40% {
+    transform: translate(2px, -3px) skewX(1deg);
+  }
+
+  60% {
+    transform: translate(-4px, 0px) skewX(-2deg);
+  }
+
+  80% {
+    transform: translate(4px, 1px) skewX(3deg);
+  }
+
+  100% {
+    transform: translate(-1px, -2px) skewX(-1deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EXTRA KEYFRAMES
+══════════════════════════════════════════════════════════════════════════════ */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-12px)
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 4px #00ff88, 0 0 8px #00ff88
+  }
+
+  50% {
+    text-shadow: 0 0 12px #00ff88, 0 0 24px #00ff88, 0 0 40px #00ff88
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%)
+  }
+
+  100% {
+    transform: translateX(-50%)
+  }
+}
+
+@keyframes marquee-rev {
+  0% {
+    transform: translateX(-50%)
+  }
+
+  100% {
+    transform: translateX(0%)
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%)
+  }
+
+  100% {
+    transform: translateY(100vh)
+  }
+}
+
+/* sparkle */
+@keyframes sparkle {
+
+  0%,
+  100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* shimmer / shine sweep */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* pulse ring */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* neon flicker */
+@keyframes neon-flicker {
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 4px #00ff88, 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+/* ─── Tailwind animation utilities ─────────────────────────────────────── */
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-rev {
+  animation: marquee-rev 20s linear infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.animate-neon-flicker {
+  animation: neon-flicker 5s infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 136, 0.3) 50%, transparent 100%);
+  background-size: 200% auto;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ─── Sparkle decorator ─────────────────────────────────────────────────── */
+.sparkle-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 6px #00ff88, 0 0 12px #00ff8866;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* ─── Magnetic button base ──────────────────────────────────────────────── */
+.magnetic-btn {
+  display: inline-block;
+}
+
+/* ─── Neon border pulse ─────────────────────────────────────────────────── */
+.neon-border {
+  border: 1px solid #00ff88;
+  box-shadow: 0 0 4px #00ff8866, inset 0 0 4px #00ff8822;
+  animation: neon-flicker 5s infinite;
+}
+
+/* ─── Pulse ring wrapper ────────────────────────────────────────────────── */
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid #00ff88;
+  animation: pulse-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+
+/* ─── Canvas layers (particles / starfield already use inline styles) ───── */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
