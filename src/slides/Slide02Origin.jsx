@@ -1,134 +1,166 @@
 import { motion } from 'framer-motion'
 
-const timeline = [
+const timelineEvents = [
   {
     year: '2023',
-    icon: '🌱',
-    title: 'Ide Lahir',
-    desc: 'Melihat kesenjangan antara talenta digital Indonesia dan akses peluang nyata. VTO mulai dirumuskan dari kamar kos.',
-    color: '#00ff88',
+    panel: 'bg-yellow',
+    bg: '#ffe838',
+    color: '#1a1008',
+    emoji: '💡',
+    title: 'IDE MUNCUL!',
+    caption: 'Di sebuah kamar kos sederhana di Jember...',
+    bubble: 'Saya lihat ada yang salah. Talenta kita bertebaran tapi tak ada yang menghubungkan mereka dengan peluang nyata!',
+    sfx: 'PING!',
+    sfxColor: '#ff2d20',
   },
   {
     year: '2024',
-    icon: '⚙️',
-    title: 'Fondasi Dibangun',
-    desc: 'Arsitektur sistem dirancang. Tim kecil berkumpul dengan satu keyakinan: ekosistem digital Indonesia bisa lebih baik.',
-    color: '#0066ff',
+    bg: '#1a6fff',
+    color: '#fff',
+    emoji: '⚙️',
+    title: 'FONDASI DIBANGUN',
+    caption: 'Bergadang, ngopi, debugging tanpa henti...',
+    bubble: 'Baris demi baris kode ditulis. Tim kecil bergabung dengan satu keyakinan yang sama.',
+    sfx: 'KLIK!',
+    sfxColor: '#ffe838',
   },
   {
     year: '2025',
-    icon: '🚀',
-    title: 'VTO Diluncurkan',
-    desc: 'Platform resmi diluncurkan. Fitur pertama live: sistem matching talenta, dashboard organisasi, dan portal peluang.',
-    color: '#7c3aed',
+    bg: '#ff2d20',
+    color: '#fff',
+    emoji: '🚀',
+    title: 'VTO DILUNCURKAN!',
+    caption: 'Hari yang ditunggu-tunggu akhirnya tiba!',
+    bubble: 'Platform hidup! Fitur matching, dashboard organisasi, dan portal peluang semuanya aktif!',
+    sfx: 'BOOM!',
+    sfxColor: '#ffe838',
   },
   {
     year: '2026',
-    icon: '📈',
-    title: 'Ekspansi & Validasi',
-    desc: 'Skala pengguna bertambah. Partnership dengan institusi pendidikan dan industri teknologi mulai terbentuk.',
-    color: '#ff6b00',
-  },
-  {
-    year: 'FUTURE',
-    icon: '🌟',
-    title: 'Ekosistem Penuh',
-    desc: 'VTO menjadi infrastruktur digital nasional yang menopang mobilitas talenta, inovasi organisasi, dan dampak sosial.',
-    color: '#00ff88',
+    bg: '#1a1008',
+    color: '#ffe838',
+    emoji: '📈',
+    title: 'EKSPANSI DIMULAI',
+    caption: 'Pengguna bertambah. Partner berdatangan.',
+    bubble: 'Universitas, perusahaan tech, NGO — semua mau bergabung. VTO mulai dikenal!',
+    sfx: 'YES!',
+    sfxColor: '#ffe838',
   },
 ]
 
 export default function Slide02Origin() {
   return (
-    <section className="slide-section dot-bg">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/3 w-72 h-72 bg-vto-purple/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-vto-accent/5 rounded-full blur-3xl" />
-      </div>
+    <section className="slide-section" style={{ background: '#fdf6e3' }}>
+      <div className="absolute inset-0 halftone opacity-25 pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 w-full">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 py-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          className="text-center mb-8"
+          initial={{ y: -40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
         >
-          <div className="glass-accent inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6">
-            <span className="font-mono text-xs text-vto-accent tracking-widest">CHAPTER 02 · ASAL USUL</span>
+          <div className="inline-block comic-panel px-6 py-3 mb-3" style={{ background: '#ffe838', transform: 'rotate(-1deg)' }}>
+            <span className="font-bangers text-ink text-xl tracking-widest">✦ CHAPTER 02 — ASAL USUL ✦</span>
           </div>
-          <h2 className="font-sans font-black text-4xl md:text-6xl text-white mb-4">
-            Kenapa VTO <br />
-            <span className="gradient-text">Diciptakan?</span>
+          <h2
+            className="font-bangers"
+            style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: '#1a1008', textShadow: '4px 4px 0 #ffe838, 6px 6px 0 #1a1008' }}
+          >
+            BAGAIMANA VTO LAHIR?
           </h2>
-          <p className="text-vto-muted text-base max-w-xl mx-auto">
-            Bukan sekadar startup — ini adalah respons nyata terhadap masalah ekosistem digital yang terlalu lama diabaikan.
-          </p>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-vto-border md:-translate-x-px" />
+        {/* Comic panels grid */}
+        <div className="comic-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gridTemplateRows: 'auto auto' }}>
+          {timelineEvents.map((ev, i) => (
+            <motion.div
+              key={ev.year}
+              className="relative overflow-hidden"
+              style={{ background: ev.bg, border: '3px solid #1a1008', minHeight: 200, padding: '16px' }}
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.4, ease: 'backOut' }}
+            >
+              {/* Halftone */}
+              <div className={`absolute inset-0 opacity-20 ${ev.bg === '#ffe838' ? 'halftone' : ev.bg === '#1a6fff' ? 'halftone-blue' : ev.bg === '#ff2d20' ? 'halftone-red' : ''}`} />
 
-          <div className="space-y-8">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={item.year}
-                className={`relative flex gap-6 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+              {/* Year badge */}
+              <div className="absolute top-2 right-2" style={{ background: '#fff', border: '2px solid #1a1008', padding: '2px 8px', boxShadow: '2px 2px 0 #1a1008' }}>
+                <span className="font-bangers" style={{ color: '#1a1008', fontSize: '0.75rem' }}>{ev.year}</span>
+              </div>
+
+              {/* SFX */}
+              <div
+                className="absolute -top-1 -left-1 font-bangers leading-none opacity-15 pointer-events-none"
+                style={{ fontSize: '4rem', color: ev.sfxColor }}
               >
-                {/* Card */}
-                <div className={`w-full md:w-5/12 ${i % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left ml-12 md:ml-0'}`}>
-                  <div className="glass rounded-xl p-5 card-hover border border-vto-border">
-                    <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? 'md:flex-row-reverse' : 'flex-row'}`}>
-                      <span className="text-2xl">{item.icon}</span>
-                      <div>
-                        <div className="font-mono text-xs text-vto-muted">{item.year}</div>
-                        <div className="font-sans font-bold text-white text-sm">{item.title}</div>
-                      </div>
-                    </div>
-                    <p className="text-vto-muted text-sm leading-relaxed">{item.desc}</p>
-                  </div>
+                {ev.sfx}
+              </div>
+
+              <div className="relative z-10">
+                {/* Title */}
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-2xl">{ev.emoji}</span>
+                  <h3 className="font-bangers" style={{ color: ev.color, fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', textShadow: ev.color === '#fff' ? '2px 2px 0 rgba(0,0,0,0.4)' : 'none' }}>
+                    {ev.title}
+                  </h3>
                 </div>
 
-                {/* Center dot */}
-                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-5 z-10">
-                  <motion.div
-                    className="w-5 h-5 rounded-full border-2 flex items-center justify-center"
-                    style={{ borderColor: item.color, backgroundColor: item.color + '22' }}
-                    whileInView={{ scale: [0, 1.3, 1] }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 + 0.2 }}
-                  >
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
-                  </motion.div>
+                {/* Caption */}
+                <p className="font-comic font-bold text-xs mb-3 opacity-80" style={{ color: ev.color }}>
+                  {ev.caption}
+                </p>
+
+                {/* Speech bubble */}
+                <div
+                  className="relative rounded-2xl p-3"
+                  style={{ background: '#fff', border: '2px solid #1a1008', boxShadow: '3px 3px 0 #1a1008' }}
+                >
+                  <p className="font-comic text-ink text-xs leading-snug font-bold">"{ev.bubble}"</p>
+                  {/* bubble tail */}
+                  <div style={{
+                    position: 'absolute', bottom: -10, left: 16,
+                    borderLeft: '8px solid transparent', borderRight: '8px solid transparent',
+                    borderTop: '10px solid #1a1008'
+                  }} />
+                  <div style={{
+                    position: 'absolute', bottom: -7, left: 18,
+                    borderLeft: '6px solid transparent', borderRight: '6px solid transparent',
+                    borderTop: '8px solid #fff', zIndex: 1
+                  }} />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* SFX stamp */}
+                <div className="mt-3">
+                  <span className="font-bangers" style={{ color: ev.sfxColor, fontSize: '1.2rem', textShadow: '2px 2px 0 #1a1008' }}>
+                    {ev.sfx}
+                  </span>
+                </div>
+              </div>
+
+              {/* Panel number */}
+              <span className="absolute bottom-2 right-3 font-bangers opacity-30" style={{ color: ev.color, fontSize: '0.65rem' }}>
+                {i + 1}
+              </span>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Quote */}
+        {/* Footer quote */}
         <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          className="mt-6 text-center"
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
         >
-          <p className="font-mono text-vto-muted text-sm italic">
-            "VTO bukan hanya platform — ini adalah infrastruktur untuk generasi berikutnya."
-          </p>
-          <p className="font-mono text-vto-accent text-xs mt-2">— Tim Pendiri VTO, 2025</p>
+          <div className="inline-block comic-panel px-6 py-3" style={{ background: '#1a1008', transform: 'rotate(1deg)' }}>
+            <p className="font-marker text-yellow-300" style={{ color: '#ffe838', fontSize: '0.9rem' }}>
+              "VTO bukan hanya platform — ini adalah cerita yang masih terus ditulis."
+            </p>
+          </div>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-8 left-8 font-mono text-xs text-vto-border">02 / 10</div>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 font-bangers text-ink text-xs tracking-widest opacity-40">— halaman 02 dari 10 —</div>
     </section>
   )
 }

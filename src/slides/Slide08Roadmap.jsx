@@ -1,212 +1,207 @@
 import { motion } from 'framer-motion'
 
-const phases = [
+const arcs = [
   {
-    phase: 'Phase 1',
+    arc: 'ARC 1',
     period: 'Q1–Q2 2025',
-    status: 'completed',
-    title: 'Fondasi & MVP',
-    color: '#00ff88',
-    items: [
-      '✅ Core platform architecture',
-      '✅ User authentication & profiles',
-      '✅ Basic talent matching',
-      '✅ Organization dashboard v1',
-      '✅ Beta launch dengan 500 pengguna',
+    title: 'AWAL MULA',
+    subtitle: 'Fondasi & MVP',
+    status: 'TAMAT',
+    statusBg: '#00c853',
+    bg: '#ffe838',
+    color: '#1a1008',
+    cover: '📖',
+    panels: [
+      '✅ Core platform dibangun dari nol',
+      '✅ Sistem autentikasi & profil aktif',
+      '✅ Basic talent matching live',
+      '✅ Dashboard organisasi v1',
+      '✅ 500 pengguna beta pertama',
     ],
+    sfx: 'ORIGIN!',
   },
   {
-    phase: 'Phase 2',
+    arc: 'ARC 2',
     period: 'Q3–Q4 2025',
-    status: 'active',
-    title: 'Growth & Features',
-    color: '#0066ff',
-    items: [
-      '🔄 AI matching v2 (behavioral)',
+    title: 'KEBANGKITAN',
+    subtitle: 'Growth & Features',
+    status: 'ONGOING',
+    statusBg: '#1a6fff',
+    bg: '#1a6fff',
+    color: '#fff',
+    cover: '⚡',
+    panels: [
+      '🔄 AI matching v2 — behavioral',
       '🔄 Learning ecosystem module',
       '🔄 Digital marketplace launch',
-      '🔄 Mobile app (iOS + Android)',
-      '⏳ 10,000 pengguna aktif',
+      '🔄 Mobile app iOS + Android',
+      '⏳ Target: 10,000 pengguna aktif',
     ],
+    sfx: 'RISE!',
   },
   {
-    phase: 'Phase 3',
+    arc: 'ARC 3',
     period: 'Q1–Q2 2026',
-    status: 'planned',
-    title: 'Ekspansi & Partnership',
-    color: '#7c3aed',
-    items: [
-      '⏳ Partnership dengan 50+ universitas',
+    title: 'EKSPANSI',
+    subtitle: 'Partnership & Scale',
+    status: 'SEGERA',
+    statusBg: '#ff6b00',
+    bg: '#ff6b00',
+    color: '#fff',
+    cover: '🌐',
+    panels: [
+      '⏳ 50+ universitas partner',
       '⏳ Enterprise tier launch',
-      '⏳ API publik untuk developer',
-      '⏳ Sertifikasi program resmi',
-      '⏳ 100,000 pengguna aktif',
+      '⏳ Public API untuk developer',
+      '⏳ Program sertifikasi resmi',
+      '⏳ Target: 100,000 pengguna',
     ],
+    sfx: 'EXPAND!',
   },
   {
-    phase: 'Phase 4',
-    period: 'Q3 2026 +',
-    status: 'future',
-    title: 'Dominasi Ekosistem',
-    color: '#ff6b00',
-    items: [
-      '🌟 Ekspansi ke ASEAN',
-      '🌟 VTO Labs (R&D arm)',
-      '🌟 Venture studio for alumni',
-      '🌟 IPO / strategic acquisition',
+    arc: 'ARC FINAL',
+    period: '2027+',
+    title: 'DOMINASI',
+    subtitle: 'Ekosistem Penuh',
+    status: 'ENDGAME',
+    statusBg: '#7c3aed',
+    bg: '#1a1008',
+    color: '#ffe838',
+    cover: '🌟',
+    panels: [
+      '🌟 Ekspansi ke seluruh ASEAN',
+      '🌟 VTO Labs — divisi R&D',
+      '🌟 Venture studio untuk alumni',
       '🌟 1 Juta pengguna aktif',
+      '🌟 IPO / strategic partnership',
     ],
+    sfx: 'FINAL!',
   },
 ]
 
-const statusConfig = {
-  completed: { label: 'SELESAI', bg: '#00ff88' },
-  active: { label: 'AKTIF', bg: '#0066ff' },
-  planned: { label: 'DIRENCANAKAN', bg: '#7c3aed' },
-  future: { label: 'MASA DEPAN', bg: '#ff6b00' },
-}
-
 export default function Slide08Roadmap() {
   return (
-    <section className="slide-section grid-bg">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-vto-purple/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-vto-blue/5 rounded-full blur-3xl" />
-      </div>
+    <section className="slide-section" style={{ background: '#fdf6e3' }}>
+      <div className="absolute inset-0 halftone opacity-25 pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 py-8">
+        {/* Header */}
         <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          className="text-center mb-6"
+          initial={{ y: -30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
         >
-          <div className="glass-accent inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6">
-            <span className="font-mono text-xs text-vto-accent tracking-widest">CHAPTER 08 · ROADMAP</span>
+          <div className="inline-block px-5 py-2 mb-2" style={{ background: '#ff6b00', border: '3px solid #1a1008', boxShadow: '4px 4px 0 #1a1008', transform: 'rotate(-1deg)' }}>
+            <span className="font-bangers text-white tracking-widest">📚 CHAPTER 08 — ROADMAP CERITA 📚</span>
           </div>
-          <h2 className="font-sans font-black text-4xl md:text-6xl text-white mb-4">
-            Peta Jalan <span className="gradient-text">VTO</span>
+          <h2 className="font-bangers text-ink" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', textShadow: '4px 4px 0 #ff6b00, 7px 7px 0 #1a1008' }}>
+            PERJALANAN MASIH PANJANG!
           </h2>
-          <p className="text-vto-muted text-base max-w-xl mx-auto">
-            Roadmap yang jelas dan terukur — bukan janji kosong, tapi milestone konkret dengan timeline nyata.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {phases.map((phase, i) => {
-            const sc = statusConfig[phase.status]
-            return (
-              <motion.div
-                key={phase.phase}
-                className="glass rounded-xl p-5 border border-vto-border relative overflow-hidden card-hover"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-              >
-                {/* Top accent */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
-                  style={{ backgroundColor: phase.color }}
-                />
-
-                {/* Status badge */}
-                <div className="flex justify-between items-start mb-4 pt-1">
-                  <div>
-                    <div className="font-mono text-xs" style={{ color: phase.color }}>{phase.phase}</div>
-                    <div className="font-mono text-xs text-vto-muted">{phase.period}</div>
-                  </div>
+        {/* Comic arc books shelf */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {arcs.map((arc, i) => (
+            <motion.div
+              key={arc.arc}
+              className="relative overflow-hidden flex flex-col"
+              style={{ background: arc.bg, border: '4px solid #1a1008', boxShadow: '6px 6px 0 #1a1008' }}
+              initial={{ y: 50, rotate: (i % 2 === 0 ? -2 : 2), opacity: 0 }}
+              whileInView={{ y: 0, rotate: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
+              whileHover={{ y: -6, rotate: i % 2 === 0 ? -1 : 1 }}
+            >
+              {/* "Cover" section */}
+              <div className="relative" style={{ background: arc.status === 'TAMAT' ? '#1a1008' : arc.bg, padding: '16px', borderBottom: '3px solid #1a1008', minHeight: 90 }}>
+                <div className="absolute inset-0 halftone opacity-10" />
+                <div className="relative z-10 text-center">
+                  <div className="text-3xl mb-1">{arc.cover}</div>
                   <span
-                    className="font-mono text-xs px-2 py-0.5 rounded-full"
-                    style={{ background: sc.bg + '20', color: sc.bg, border: `1px solid ${sc.bg}40` }}
+                    className="font-bangers text-xs px-2 py-0.5"
+                    style={{ background: arc.statusBg, color: '#fff', border: '2px solid #1a1008', boxShadow: '2px 2px 0 #1a1008' }}
                   >
-                    {sc.label}
+                    {arc.status}
                   </span>
                 </div>
-
-                <h3
-                  className="font-sans font-black text-base text-white mb-4"
-                  style={{ borderBottom: `1px solid ${phase.color}30`, paddingBottom: '12px' }}
+                {/* SFX watermark */}
+                <div
+                  className="absolute bottom-0 right-0 font-bangers opacity-10 leading-none"
+                  style={{ fontSize: '2.5rem', color: arc.color }}
                 >
-                  {phase.title}
-                </h3>
+                  {arc.sfx}
+                </div>
+              </div>
 
-                <div className="space-y-2">
-                  {phase.items.map((item, j) => (
-                    <motion.div
+              {/* Content */}
+              <div style={{ padding: '14px', flex: 1 }}>
+                <div className="font-bangers text-xs mb-1" style={{ color: arc.color, opacity: 0.6 }}>{arc.period}</div>
+                <div className="font-bangers leading-tight mb-1" style={{ color: arc.color, fontSize: '1.1rem' }}>{arc.arc}</div>
+                <div className="font-bangers text-sm mb-1" style={{ color: arc.color }}>{arc.title}</div>
+                <div className="font-comic text-xs mb-3 font-bold" style={{ color: arc.color, opacity: 0.7 }}>{arc.subtitle}</div>
+
+                {/* Panel list */}
+                <div className="space-y-1">
+                  {arc.panels.map((panel, j) => (
+                    <motion.p
                       key={j}
-                      className="font-mono text-xs text-vto-muted leading-relaxed"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
+                      className="font-comic text-xs leading-snug"
+                      style={{ color: arc.color, opacity: 0.85 }}
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 0.85, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: i * 0.12 + j * 0.05 }}
+                      transition={{ delay: i * 0.12 + j * 0.06 }}
                     >
-                      {item}
-                    </motion.div>
+                      {panel}
+                    </motion.p>
                   ))}
                 </div>
 
-                {/* Progress for active */}
-                {phase.status === 'active' && (
-                  <div className="mt-4 pt-3 border-t border-vto-border">
-                    <div className="flex justify-between mb-1">
-                      <span className="font-mono text-xs text-vto-muted">Progress</span>
-                      <span className="font-mono text-xs text-vto-blue">40%</span>
-                    </div>
-                    <div className="h-1 bg-vto-border rounded-full overflow-hidden">
+                {/* Progress bar for ongoing */}
+                {arc.status === 'ONGOING' && (
+                  <div className="mt-3">
+                    <div className="h-2" style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.4)' }}>
                       <motion.div
-                        className="h-full bg-vto-blue rounded-full"
+                        className="h-full"
+                        style={{ background: '#ffe838' }}
                         initial={{ width: 0 }}
                         whileInView={{ width: '40%' }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.5 }}
                       />
                     </div>
+                    <span className="font-bangers text-xs" style={{ color: '#ffe838' }}>40% SELESAI</span>
                   </div>
                 )}
-                {phase.status === 'completed' && (
-                  <div className="mt-4 pt-3 border-t border-vto-border">
-                    <div className="h-1 bg-vto-border rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: phase.color }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '100%' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1 }}
-                      />
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            )
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Timeline bar */}
+        {/* Timeline strip */}
         <motion.div
-          className="mt-8 glass rounded-xl p-4 border border-vto-border"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          className="mt-5"
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
         >
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-xs text-vto-muted whitespace-nowrap">2025</span>
-            <div className="flex-1 h-2 bg-vto-border rounded-full overflow-hidden relative">
-              <div className="absolute inset-0 flex">
-                <div className="w-1/4 bg-vto-accent" />
-                <div className="w-1/4 bg-vto-blue animate-pulse" />
-                <div className="w-1/4 bg-vto-purple/40" />
-                <div className="w-1/4 bg-vto-orange/30" />
+          <div style={{ background: '#1a1008', border: '3px solid #1a1008', height: 28, position: 'relative', display: 'flex' }}>
+            {[
+              { w: '25%', bg: '#00c853', label: 'ARC 1' },
+              { w: '25%', bg: '#1a6fff', label: 'ARC 2' },
+              { w: '25%', bg: '#ff6b00', label: 'ARC 3' },
+              { w: '25%', bg: '#7c3aed', label: 'FINAL' },
+            ].map((seg, i) => (
+              <div key={i} style={{ width: seg.w, background: seg.bg, borderRight: '3px solid #1a1008', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span className="font-bangers text-white text-xs" style={{ textShadow: '1px 1px 0 #1a1008' }}>{seg.label}</span>
               </div>
-            </div>
-            <span className="font-mono text-xs text-vto-muted whitespace-nowrap">2027+</span>
+            ))}
+          </div>
+          <div className="flex justify-between mt-1">
+            <span className="font-bangers text-ink text-xs">2025</span>
+            <span className="font-bangers text-ink text-xs">2027+</span>
           </div>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-8 left-8 font-mono text-xs text-vto-border">08 / 10</div>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 font-bangers text-ink text-xs tracking-widest opacity-40">— halaman 08 dari 10 —</div>
     </section>
   )
 }

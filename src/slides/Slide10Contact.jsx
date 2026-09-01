@@ -1,202 +1,139 @@
 import { motion } from 'framer-motion'
 
-const links = [
-  {
-    icon: '💬',
-    label: 'WhatsApp',
-    value: 'Chat Langsung',
-    href: 'https://wa.me/6281234567890',
-    color: '#25d366',
-    desc: 'Respon < 1 jam di jam kerja',
-  },
-  {
-    icon: '📧',
-    label: 'Email',
-    value: 'hello@vto.id',
-    href: 'mailto:hello@vto.id',
-    color: '#00ff88',
-    desc: 'Untuk keperluan formal & partnership',
-  },
-  {
-    icon: '💼',
-    label: 'LinkedIn',
-    value: 'VTO Platform',
-    href: 'https://linkedin.com',
-    color: '#0077b5',
-    desc: 'Update terbaru & networking profesional',
-  },
-  {
-    icon: '🐙',
-    label: 'GitHub',
-    value: 'github.com/vto-id',
-    href: 'https://github.com',
-    color: '#ffffff',
-    desc: 'Open source contributions welcome',
-  },
+const contacts = [
+  { icon: '💬', label: 'WhatsApp', val: 'Chat Langsung', href: 'https://wa.me/6281234567890', bg: '#25d366', color: '#fff' },
+  { icon: '📧', label: 'Email', val: 'hello@vto.id', href: 'mailto:hello@vto.id', bg: '#ffe838', color: '#1a1008' },
+  { icon: '💼', label: 'LinkedIn', val: 'VTO Platform', href: 'https://linkedin.com', bg: '#0077b5', color: '#fff' },
+  { icon: '🐙', label: 'GitHub', val: 'github.com/vto-id', href: 'https://github.com/rizki-habibi/vto-portfolio', bg: '#1a1008', color: '#ffe838' },
 ]
 
-const opportunities = [
-  { icon: '🤝', title: 'Partnership', desc: 'Universitas, perusahaan, atau komunitas yang ingin berkolaborasi' },
-  { icon: '💰', title: 'Investasi', desc: 'Angel investor atau VC yang aligned dengan misi kami' },
-  { icon: '👨‍💻', title: 'Bergabung Tim', desc: 'Developer, desainer, atau biz-dev yang mau ikut membangun' },
-  { icon: '📣', title: 'Jadi Beta User', desc: 'Early adopter yang mau feedback dan ikut shaping produk' },
+const callouts = [
+  { icon: '🤝', title: 'PARTNERSHIP', desc: 'Universitas, perusahaan, atau komunitas yang mau kolaborasi', bg: '#ffe838', color: '#1a1008' },
+  { icon: '💰', title: 'INVESTASI', desc: 'Angel investor atau VC yang aligned dengan misi kami', bg: '#1a6fff', color: '#fff' },
+  { icon: '👨‍💻', title: 'GABUNG TIM', desc: 'Dev, desainer, atau biz-dev yang mau ikut membangun', bg: '#ff2d20', color: '#fff' },
+  { icon: '📣', title: 'BETA USER', desc: 'Early adopter yang mau feedback dan shaping produk', bg: '#7c3aed', color: '#fff' },
 ]
-
-const MarqueeBar = () => {
-  const items = ['VTO · VISI · TEKNOLOGI · ORGANISASI · JOIN US · COLLABORATE · BUILD TOGETHER · ']
-  return (
-    <div className="overflow-hidden py-3 border-y border-vto-border my-8">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {[...items, ...items].map((t, i) => (
-          <span key={i} className="font-mono text-xs text-vto-muted mx-4">{t}</span>
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export default function Slide10Contact() {
   return (
-    <section className="slide-section grid-bg">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-vto-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-vto-blue/5 rounded-full blur-3xl" />
-      </div>
+    <section className="slide-section" style={{ background: '#fdf6e3' }}>
+      <div className="absolute inset-0 halftone opacity-25 pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 w-full">
-        {/* Header */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 py-8">
+        {/* Header — back cover style */}
         <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          className="text-center mb-6"
+          initial={{ y: -30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
         >
-          <div className="glass-accent inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-vto-accent animate-pulse" />
-            <span className="font-mono text-xs text-vto-accent tracking-widest">CHAPTER 10 · BERGABUNG</span>
+          <div className="inline-block px-5 py-2 mb-2" style={{ background: '#ff2d20', border: '3px solid #1a1008', boxShadow: '4px 4px 0 #1a1008', transform: 'rotate(1deg)' }}>
+            <span className="font-bangers text-white tracking-widest">✉ CHAPTER 10 — AKHIR KATA ✉</span>
           </div>
-
-          <motion.h2
-            className="font-sans font-black text-5xl md:text-7xl text-white mb-2 leading-none"
-            animate={{ opacity: [1, 0.8, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Ayo <span className="text-glow text-vto-accent">Gabung</span>
-          </motion.h2>
-          <h2 className="font-sans font-black text-5xl md:text-7xl text-white mb-6 leading-none">
-            Bersama VTO
+          <h2 className="font-bangers text-ink" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', textShadow: '4px 4px 0 #ff2d20, 7px 7px 0 #1a1008' }}>
+            AYO GABUNG BERSAMA VTO!
           </h2>
-
-          <p className="text-vto-muted text-base max-w-xl mx-auto">
-            Ekosistem terbaik dibangun bersama-sama. Punya ide, modal, skill, atau sekadar semangat? Kami ingin mendengar dari kamu.
-          </p>
         </motion.div>
 
-        <MarqueeBar />
+        {/* Marquee ticker */}
+        <div className="overflow-hidden mb-6" style={{ background: '#1a1008', borderTop: '3px solid #1a1008', borderBottom: '3px solid #1a1008', padding: '8px 0' }}>
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...Array(4)].map((_, i) => (
+              <span key={i} className="font-bangers text-sm mx-4" style={{ color: '#ffe838' }}>
+                ✦ VTO · VISI · TEKNOLOGI · ORGANISASI · JOIN US · COLLABORATE · BUILD TOGETHER · INDONESIA BISA · LET'S GO ·
+              </span>
+            ))}
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {/* Contact links */}
           <div>
-            <div className="font-mono text-xs text-vto-muted mb-4">HUBUNGI KAMI</div>
-            <div className="space-y-3">
-              {links.map((link, i) => (
+            <div className="inline-block px-3 py-1 mb-3" style={{ background: '#1a1008' }}>
+              <span className="font-bangers text-white text-xs tracking-widest">HUBUNGI KAMI</span>
+            </div>
+            <div className="space-y-2">
+              {contacts.map((c, i) => (
                 <motion.a
-                  key={link.label}
-                  href={link.href}
+                  key={c.label}
+                  href={c.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 glass rounded-xl p-4 card-hover border border-vto-border group"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  className="flex items-center gap-4 group"
+                  style={{ background: '#fff', border: '3px solid #1a1008', boxShadow: '4px 4px 0 #1a1008', padding: '12px 16px', display: 'flex', textDecoration: 'none' }}
+                  initial={{ x: -30, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  whileHover={{ x: 6 }}
+                  whileHover={{ x: -4, boxShadow: '8px 8px 0 #1a1008' }}
                 >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                    style={{ background: link.color + '15', border: `1px solid ${link.color}30` }}
-                  >
-                    {link.icon}
+                  <div className="w-10 h-10 flex items-center justify-center text-xl flex-shrink-0"
+                    style={{ background: c.bg, border: '2px solid #1a1008', boxShadow: '2px 2px 0 #1a1008' }}>
+                    {c.icon}
                   </div>
                   <div className="flex-1">
-                    <div className="font-mono text-xs text-vto-muted">{link.label}</div>
-                    <div className="font-sans font-bold text-white text-sm">{link.value}</div>
-                    <div className="font-mono text-xs text-vto-muted">{link.desc}</div>
+                    <div className="font-bangers text-ink text-sm">{c.label}</div>
+                    <div className="font-comic text-ink text-xs font-bold opacity-60">{c.val}</div>
                   </div>
-                  <svg
-                    className="w-4 h-4 text-vto-muted group-hover:text-vto-accent transition-colors"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <span className="font-bangers text-ink opacity-40 group-hover:opacity-100 transition-opacity">→</span>
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Opportunities */}
+          {/* Callout cards */}
           <div>
-            <div className="font-mono text-xs text-vto-muted mb-4">PELUANG KOLABORASI</div>
-            <div className="grid grid-cols-2 gap-3">
-              {opportunities.map((opp, i) => (
+            <div className="inline-block px-3 py-1 mb-3" style={{ background: '#1a1008' }}>
+              <span className="font-bangers text-white text-xs tracking-widest">PELUANG KOLABORASI</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {callouts.map((c, i) => (
                 <motion.div
-                  key={opp.title}
-                  className="glass rounded-xl p-4 card-hover border border-vto-border"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={c.title}
+                  className="relative overflow-hidden"
+                  style={{ background: c.bg, border: '3px solid #1a1008', boxShadow: '4px 4px 0 #1a1008', padding: '14px 12px' }}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.1, type: 'spring', stiffness: 200 }}
+                  whileHover={{ y: -4 }}
                 >
-                  <div className="text-2xl mb-2">{opp.icon}</div>
-                  <div className="font-sans font-bold text-white text-sm mb-1">{opp.title}</div>
-                  <div className="font-mono text-xs text-vto-muted leading-relaxed">{opp.desc}</div>
+                  <div className="text-2xl mb-1">{c.icon}</div>
+                  <div className="font-bangers text-sm mb-1" style={{ color: c.color }}>{c.title}</div>
+                  <div className="font-comic text-xs font-bold leading-snug" style={{ color: c.color, opacity: 0.8 }}>{c.desc}</div>
                 </motion.div>
               ))}
             </div>
 
-            {/* CTA button */}
-            <motion.div
-              className="mt-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+            {/* Big CTA */}
+            <motion.a
+              href="mailto:hello@vto.id"
+              className="mt-3 flex items-center justify-center gap-2"
+              style={{ background: '#ffe838', border: '4px solid #1a1008', boxShadow: '6px 6px 0 #1a1008', padding: '16px', display: 'flex', textDecoration: 'none', marginTop: 12 }}
+              whileHover={{ x: -3, y: -3, boxShadow: '9px 9px 0 #1a1008' }}
+              whileTap={{ x: 2, y: 2, boxShadow: '2px 2px 0 #1a1008' }}
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
             >
-              <a
-                href="mailto:hello@vto.id"
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-mono font-bold text-sm bg-vto-accent text-vto-black hover:bg-vto-accent/90 transition-all duration-300 hover:shadow-lg hover:shadow-vto-accent/20"
-              >
-                <span>✉</span>
-                Kirim Proposal Kolaborasi
-              </a>
-            </motion.div>
+              <span className="font-bangers text-ink text-xl tracking-widest">✉ KIRIM PESAN SEKARANG!</span>
+            </motion.a>
           </div>
         </div>
 
-        {/* Footer */}
+        {/* Back cover footer */}
         <motion.div
-          className="mt-10 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          className="mt-8 text-center"
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
         >
-          <div className="flex justify-center items-center gap-2 mb-3">
-            <div className="w-6 h-6 rounded-md bg-vto-accent/10 border border-vto-accent/30 flex items-center justify-center">
-              <span className="font-mono text-xs font-bold text-vto-accent">V</span>
-            </div>
-            <span className="font-mono font-bold text-white tracking-widest">VTO</span>
+          <div className="inline-block" style={{ background: '#1a1008', border: '4px solid #ffe838', padding: '16px 32px', boxShadow: '6px 6px 0 #ffe838' }}>
+            <p className="font-bangers text-white text-sm tracking-widest mb-1">✦ VTO · VISI · TEKNOLOGI · ORGANISASI ✦</p>
+            <p className="font-bangers text-3xl" style={{ color: '#ffe838', textShadow: '3px 3px 0 #ff2d20' }}>VTO</p>
+            <p className="font-comic text-white text-xs mt-1 opacity-60">© 2025 VTO Studios · Dibuat dengan ❤ untuk Indonesia</p>
+            <p className="font-comic text-xs mt-1 opacity-40" style={{ color: '#ffe838' }}>
+              Ketik ↑↑↓↓←→←→BA untuk kejutan 🎉
+            </p>
           </div>
-          <p className="font-mono text-xs text-vto-muted">
-            Visi · Teknologi · Organisasi — Membangun ekosistem digital Indonesia
-          </p>
-          <p className="font-mono text-xs text-vto-border mt-2">
-            © 2025 VTO. Dibuat dengan ❤️ untuk Indonesia
-          </p>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-8 left-8 font-mono text-xs text-vto-border">10 / 10</div>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 font-bangers text-ink text-xs tracking-widest opacity-40">— halaman 10 dari 10 — TAMAT ✦</div>
     </section>
   )
 }

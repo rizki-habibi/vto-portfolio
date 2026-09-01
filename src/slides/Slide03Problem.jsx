@@ -1,140 +1,148 @@
 import { motion } from 'framer-motion'
 
-const problems = [
+const villains = [
   {
-    number: '01',
-    icon: '🔍',
-    title: 'Talenta Tak Terlihat',
-    desc: 'Jutaan developer, desainer, dan kreator berbakat Indonesia kesulitan diakses oleh organisasi yang membutuhkan mereka. Tidak ada jembatan yang efisien.',
-    stat: '70%',
-    statLabel: 'talenta digital belum terkoneksi',
-    color: '#ff4444',
+    name: 'SI TEMBOK KESEMPATAN',
+    icon: '🧱',
+    power: 'Memblokir talenta dari peluang nyata',
+    stat: '70% talenta tak terkoneksi',
+    desc: 'Jutaan developer, desainer & kreator berbakat Indonesia tersembunyi di balik dinding sistem yang kuno dan tidak transparan.',
+    bg: '#ff2d20',
+    sfx: 'BLOCKED!',
   },
   {
-    number: '02',
-    icon: '🏢',
-    title: 'Organisasi Stagnan',
-    desc: 'Startup dan perusahaan menghabiskan waktu berbulan-bulan hanya untuk menemukan tim yang tepat. Birokrasi dan proses rekrutmen yang kaku memperlambat inovasi.',
-    stat: '3-6',
-    statLabel: 'bulan rata-rata rekrutmen tech',
-    color: '#ff6b00',
+    name: 'SI BIROKRASI LAMBAT',
+    icon: '🐌',
+    power: 'Memperlambat rekrutmen sampai berbulan-bulan',
+    stat: '3-6 bulan rata-rata hiring',
+    desc: 'Proses seleksi bertele-tele, formulir tidak berujung, dan interview tanpa kepastian. Inovasi tertahan oleh proses yang usang.',
+    bg: '#ff6b00',
+    sfx: 'SLOOOW!',
   },
   {
-    number: '03',
+    name: 'SI KESENJANGAN ILMU',
     icon: '📚',
-    title: 'Kesenjangan Skill & Peluang',
-    desc: 'Kurikulum pendidikan tertinggal dari kebutuhan industri. Banyak lulusan tidak siap, sementara lowongan pekerjaan terus bertambah tanpa kandidat yang sesuai.',
-    stat: '2M+',
-    statLabel: 'gap tenaga kerja digital 2025',
-    color: '#7c3aed',
+    power: 'Kurikulum tertinggal dari industri 5 tahun',
+    stat: '2 Juta+ gap tenaga kerja digital',
+    desc: 'Lulusan lulus tanpa skill relevan. Dunia kerja menuntut lebih. Tidak ada yang menjembatani keduanya secara nyata.',
+    bg: '#7c3aed',
+    sfx: 'GAP!',
   },
   {
-    number: '04',
-    icon: '🌐',
-    title: 'Ekosistem Terfragmentasi',
-    desc: 'Tools tersebar di mana-mana. Tidak ada satu platform yang mengintegrasikan pembelajaran, kolaborasi, rekrutmen, dan monetisasi dalam satu ekosistem.',
-    stat: '15+',
-    statLabel: 'platform terpisah yang harus digunakan',
-    color: '#0066ff',
+    name: 'SI FRAGMENTASI PLATFORM',
+    icon: '🔀',
+    power: 'Memecah ekosistem jadi 15+ tempat berbeda',
+    stat: 'Tidak ada satu rumah yang lengkap',
+    desc: 'LinkedIn untuk network, Upwork untuk freelance, Coursera untuk belajar, Slack untuk kolaborasi. Terlalu banyak tab terbuka!',
+    bg: '#1a6fff',
+    sfx: 'SCATTER!',
   },
 ]
 
 export default function Slide03Problem() {
   return (
-    <section className="slide-section noise-bg">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 w-96 h-96 bg-red-500/3 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-vto-purple/5 rounded-full blur-3xl" />
-      </div>
+    <section className="slide-section" style={{ background: '#1a1008' }}>
+      <div className="absolute inset-0 halftone-red opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 py-8">
+        {/* Header */}
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          className="text-center mb-8"
+          initial={{ y: -30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
         >
-          <div className="glass-accent inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            <span className="font-mono text-xs text-vto-accent tracking-widest">CHAPTER 03 · MASALAH NYATA</span>
+          <div className="inline-block px-6 py-2 mb-3" style={{ background: '#ff2d20', border: '3px solid #ffe838', boxShadow: '4px 4px 0 #ffe838' }}>
+            <span className="font-bangers text-white tracking-widest">⚠ CHAPTER 03 — PARA PENJAHAT ⚠</span>
           </div>
-          <h2 className="font-sans font-black text-4xl md:text-6xl text-white mb-4">
-            Masalah yang{' '}
-            <span className="text-red-400">VTO Selesaikan</span>
+          <h2
+            className="font-bangers"
+            style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: '#ffe838', textShadow: '4px 4px 0 #ff2d20, 7px 7px 0 #000' }}
+          >
+            MUSUH YANG HARUS DIKALAHKAN!
           </h2>
-          <p className="text-vto-muted text-base max-w-xl mx-auto">
-            Ekosistem digital Indonesia punya potensi luar biasa — tapi hambatan sistemik mencegahnya berkembang optimal.
+          <p className="font-comic font-bold text-white opacity-70 text-sm mt-2">
+            4 masalah nyata yang menghambat ekosistem digital Indonesia
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {problems.map((p, i) => (
+        {/* Villain cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {villains.map((v, i) => (
             <motion.div
-              key={p.number}
-              className="glass rounded-xl p-6 card-hover border border-vto-border relative overflow-hidden"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={v.name}
+              className="relative overflow-hidden"
+              style={{ background: '#fdf6e3', border: '4px solid #ffe838', boxShadow: '6px 6px 0 #ffe838', padding: '20px' }}
+              initial={{ x: i % 2 === 0 ? -50 : 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ delay: i * 0.1, duration: 0.4, ease: 'backOut' }}
+              whileHover={{ scale: 1.02 }}
             >
-              {/* Background number */}
-              <div
-                className="absolute top-3 right-4 font-mono font-black text-6xl opacity-5 select-none"
-                style={{ color: p.color }}
-              >
-                {p.number}
-              </div>
+              {/* Halftone corner */}
+              <div className="absolute top-0 right-0 w-24 h-24 halftone-red opacity-20" />
 
-              {/* Accent line */}
-              <div
-                className="absolute top-0 left-0 w-full h-0.5"
-                style={{ background: `linear-gradient(90deg, ${p.color}44, transparent)` }}
-              />
+              {/* Villain color bar */}
+              <div className="absolute top-0 left-0 bottom-0 w-2" style={{ background: v.bg }} />
 
-              <div className="relative z-10">
-                <div className="flex items-start gap-4 mb-4">
+              <div className="pl-3">
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-3">
                   <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0"
-                    style={{ background: p.color + '15', border: `1px solid ${p.color}33` }}
+                    className="w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0"
+                    style={{ background: v.bg, border: '3px solid #1a1008', boxShadow: '3px 3px 0 #1a1008' }}
                   >
-                    {p.icon}
+                    {v.icon}
                   </div>
                   <div>
-                    <div className="font-mono text-xs mb-1" style={{ color: p.color }}>PROBLEM {p.number}</div>
-                    <h3 className="font-sans font-bold text-white text-base">{p.title}</h3>
+                    <div className="font-bangers text-white text-xs px-2 py-0.5 inline-block mb-1" style={{ background: v.bg, border: '1px solid #1a1008' }}>
+                      VILLAIN #{i + 1}
+                    </div>
+                    <h3 className="font-bangers text-ink leading-tight" style={{ fontSize: 'clamp(0.85rem, 2vw, 1.1rem)' }}>
+                      {v.name}
+                    </h3>
                   </div>
                 </div>
 
-                <p className="text-vto-muted text-sm leading-relaxed mb-5">{p.desc}</p>
+                {/* Power level */}
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="font-bangers text-white text-xs px-2 py-0.5" style={{ background: '#1a1008' }}>KEKUATAN:</span>
+                  <span className="font-comic text-ink text-xs font-bold">{v.power}</span>
+                </div>
 
-                <div className="flex items-center gap-3 pt-3 border-t border-vto-border/50">
+                <p className="font-comic text-ink text-xs leading-relaxed mb-3">{v.desc}</p>
+
+                {/* Stat */}
+                <div className="flex items-center justify-between">
+                  <span className="font-bangers text-lg" style={{ color: v.bg, textShadow: '1px 1px 0 #1a1008' }}>{v.stat}</span>
                   <span
-                    className="font-mono font-black text-2xl"
-                    style={{ color: p.color }}
+                    className="font-bangers text-xl opacity-60"
+                    style={{ color: v.bg, textShadow: '2px 2px 0 #1a1008' }}
                   >
-                    {p.stat}
+                    {v.sfx}
                   </span>
-                  <span className="font-mono text-xs text-vto-muted">{p.statLabel}</span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* VTO response */}
         <motion.div
-          className="mt-8 glass-accent rounded-xl p-5 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          className="mt-6 text-center"
+          initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }} transition={{ type: 'spring', delay: 0.5 }}
         >
-          <p className="font-mono text-vto-accent text-sm">
-            ⚡ VTO hadir sebagai solusi menyeluruh — bukan patch-up, tapi transformasi ekosistem dari fondasinya.
-          </p>
+          <div
+            className="inline-block px-8 py-4"
+            style={{ background: '#ffe838', border: '4px solid #ffe838', boxShadow: '6px 6px 0 #ffe838', outline: '4px solid #1a1008', outlineOffset: '-4px' }}
+          >
+            <span className="font-bangers text-ink" style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)', textShadow: '3px 3px 0 rgba(0,0,0,0.2)' }}>
+              ⚡ VTO SIAP MELAWAN SEMUANYA! ⚡
+            </span>
+          </div>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-8 left-8 font-mono text-xs text-vto-border">03 / 10</div>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 font-bangers text-yellow-400 text-xs tracking-widest opacity-40" style={{ color: '#ffe838' }}>— halaman 03 dari 10 —</div>
     </section>
   )
 }
